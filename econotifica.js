@@ -9,7 +9,7 @@ create table cidade (id serial primary key,
     estado varchar,
     pais varchar,
     cep varchar,
-    fkpessoa varchar,
+    fkpessoa varchar NOT NULL,
     FOREIGN KEY (fkpessoa) REFERENCES pessoa (email)
 );
 
@@ -22,7 +22,7 @@ create table lixeira (id serial primary key,
 );
 
 
-create table grupo (id serial primary key, pessoa varchar, lixeira int,
+create table grupo (id serial primary key, pessoa varchar NOT NULL, lixeira int NOT NULL,
     FOREIGN KEY (pessoa) REFERENCES pessoa (email),
     FOREIGN KEY (lixeira) REFERENCES lixeira (id)
 );
